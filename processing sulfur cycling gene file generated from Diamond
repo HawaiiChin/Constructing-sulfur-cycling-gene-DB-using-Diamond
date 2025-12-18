@@ -1,2 +1,6 @@
 #total hits 374060
 cat sulfurGene/SRR18673640sulfurgenes|wc -l
+
+#quality filtering
+awk -v OFS='\t' '$3>=50 && $11 <= 1e-10 &&4>=100' "sulfurGene/SRR18673640sulfurgenes" > "SRR18673640_HIGH_QUA.tsv"
+awk -v OFS='\t' '$3>=30 && $11 <= 1e-5' "sulfurGene/SRR18673640sulfurgenes" > SRR18673640_Med_QUA.tsv"
