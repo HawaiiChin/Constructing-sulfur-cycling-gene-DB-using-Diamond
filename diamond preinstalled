@@ -1,0 +1,7 @@
+git clone https://github.com/qichao1984/SCycDB/tree/master
+
+cd SCycDB-master
+
+unzip SCycDB_2020Mar.zip
+
+diamond makedb --in SCycDB_2020Mar.faa --db sulfur-cycling-gene-db --threads $ --block-size $ --quiet
