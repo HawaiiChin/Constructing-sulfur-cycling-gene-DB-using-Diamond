@@ -8,4 +8,13 @@ awk -v OFS='\t' '$3>=30 && $11 <= 1e-5' "sulfurGene/SRR18673640sulfurgenes" > SR
 #dereplicate 
 sort -k1,1 -k12,12gr "sulfurGene/SRR18673640sulfurgenes" |awk '!seen[$1]++'> "SRR18673640_best_hits.tsv"
 
+#classification 
+declare -A SULFUR_GENES=(["dsr"]='dsr'\
+["apr"]='apr' ["sat"]='sat' ["sox"]='sox' ["sqr"]='sqr' \
+["phs"]='phs' ["dox"]='dox' ["sor"]='sor' ["tus"]='tus' ["cys"]='cys')
+for gene in "${!SULFUR_GENES[@]}"; do count=$(grep -i "$gene" "sulfurGene/SRR18673640sulfurgenes" | wc -l); \
+echo "$gene (${SULFUR_GENES[$gene]}): $count"; \
+grep -i "$gene" "sulfurGene/SRR18673640sulfurgenes">"SRR18673640sulfurgenes_${gene}.tsv"; done
+
+
 
