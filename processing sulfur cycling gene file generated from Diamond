@@ -1,0 +1,2 @@
+#total hits 374060
+cat sulfurGene/SRR18673640sulfurgenes|wc -l
