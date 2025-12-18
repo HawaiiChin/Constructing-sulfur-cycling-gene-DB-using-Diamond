@@ -1,0 +1,1 @@
+diamond blastx --db SulfurCDB.dmnd -q Megahit/SRR18673643_contigs.fa --out Sulfurtest --threads 28
