@@ -4,3 +4,8 @@ cat sulfurGene/SRR18673640sulfurgenes|wc -l
 #quality filtering (50% & 30% cutoff)
 awk -v OFS='\t' '$3>=50 && $11 <= 1e-10 &&4>=100' "sulfurGene/SRR18673640sulfurgenes" > "SRR18673640_HIGH_QUA.tsv"
 awk -v OFS='\t' '$3>=30 && $11 <= 1e-5' "sulfurGene/SRR18673640sulfurgenes" > SRR18673640_Med_QUA.tsv"
+
+#dereplicate 
+sort -k1,1 -k12,12gr "sulfurGene/SRR18673640sulfurgenes" |awk '!seen[$1]++'> "SRR18673640_best_hits.tsv"
+
+
